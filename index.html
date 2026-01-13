@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nihar & Chaitra – Wedding Invitation</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- RESET ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(180deg, #eef5ec, #f8fbf7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #3d4a3f;
+    }
+
+    /* ---------- ENVELOPE ---------- */
+    .envelope {
+      width: 92%;
+      max-width: 380px;
+      background: #e8f0e6;
+      border-radius: 18px;
+      padding: 40px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+      overflow: hidden;
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+
+    .envelope.opened {
+      transform: translateY(-10px);
+      box-shadow: 0 35px 80px rgba(0,0,0,0.18);
+    }
+
+    .floral-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.15;
+      background-image: 
+        radial-gradient(circle at 20% 30%, #b7cdb8 2px, transparent 3px),
+        radial-gradient(circle at 70% 60%, #b7cdb8 2px, transparent 3px);
+      background-size: 80px 80px;
+      z-index: 0;
+    }
+
+    /* ---------- WAX SEAL ---------- */
+    .wax-seal {
+      width: 90px;
+      height: 90px;
+      background: radial-gradient(circle at top left, #f6d7d7, #d9a5a5);
+      border-radius: 50%;
+      margin: 40px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 26px;
+      color: #7a2e2e;
+      cursor: pointer;
+      box-shadow: inset 0 0 0 6px rgba(255,255,255,0.4),
+                  0 10px 25px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      z-index: 2;
+      position: relative;
+    }
+
+    .wax-seal:active {
+      transform: scale(0.95);
+    }
+
+    /* ---------- INVITATION CONTENT ---------- */
+    .invite {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+      position: relative;
+      z-index: 2;
+      padding-top: 10px;
+    }
+
+    .envelope.opened .invite {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      margin: 10px 0 20px;
+    }
+
+    .text {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .names {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 12px 0;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: #a8bda8;
+      margin: 16px auto;
+    }
+
+    /* ---------- MAP BUTTON ---------- */
+    .map-btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 30px;
+      background: #8fa98f;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .map-btn:hover {
+      background: #7b957b;
+      transform: translateY(-2px);
+    }
+
+    /* ---------- HIDE SEAL AFTER OPEN ---------- */
+    .envelope.opened .wax-seal {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.5);
+      transition: all 0.6s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="envelope" id="envelope">
+    <div class="floral-bg"></div>
+
+    <div class="wax-seal" id="seal">Tap</div>
+
+    <div class="invite">
+      <div class="text">
+        Sri KB Prashanth<br />
+        &amp; Smt Manjula
+      </div>
+
+      <div class="text">
+        cordially invite you to the<br />
+        wedding of their son
+      </div>
+
+      <div class="text">
+        <strong>Thursday, February 26th</strong><br />
+        Muhurtham: 10:30 AM to 11:00 AM
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="names">
+        Nihar KP<br />
+        &amp;<br />
+        Chaitra BV
+      </div>
+
+      <div class="text">
+        daughter of<br />
+        Sri BV Venugopal<br />
+        &amp; Smt S Swarnalatha
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="text">
+        DR SRI SRI SHIVAKUMARA SWAMIJI<br />
+        DHARMIKA KENDRA<br />
+        Gokula Extension, Tumakuru,<br />
+        Karnataka 572103
+      </div>
+
+      <a
+        class="map-btn"
+        href="https://www.google.com/maps/search/?api=1&query=DR+SRI+SRI+SHIVAKUMARA+SWAMIJI+DHARMIKA+KENDRA+Tumakuru"
+        target="_blank"
+      >
+        📍 Get Location
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Tap-to-open envelope animation
+    const envelope = document.getElementById('envelope');
+    const seal = document.getElementById('seal');
+
+    seal.addEventListener('click', () => {
+      envelope.classList.add('opened');
+    });
+  </script>
+
+</body>
+</html>
